@@ -1,6 +1,7 @@
-reverPair = 0
+reverPair = 0#全局变量reverPair统计数组中逆序对的数量
 def mergeSort(arr,p,r):
-    #p17,归并排序，全局变量reverPair统计数组中逆序对数量，O(nlgn).注意r是数组的最大下标.
+    #p17,归并排序，O(nlgn).注意r是数组的最大下标.
+    #另：一种划分n/k个长度为k的子数组的归并排序，对每个字数组用插入排序，时间复杂为O(nk+nlg(n/k))
     if p<r:
         q = int((p+r)/2)
         mergeSort(arr,p,q)
@@ -29,7 +30,7 @@ def Merge(arr,p,q,r):
         else:
             arr[k] = arr2[j]
             j += 1
-            reverPair += n1 - i
+            reverPair += n1 - i#逆序对数量增加
 
     '''不设置哨兵值的写法，要统计逆序对时不建议用这个写法
     for k in range(p,r+1):#注意k的范围
